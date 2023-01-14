@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Docker Build and Push
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Docker Images
+        run: |
+          cd dockerfiles
+          # docker build -f latex-geospatial-4.2.2 -t ghcr.io/$GITHUB_ACTOR/r-latex:geospatial-4.2.2 .
+          docker build -f vscode-geospatial-4.2.2 -t ghcr.io/$GITHUB_ACTOR/r-latex:vscode-geospatial-4.2.2 .
+      - name: Push Docker Image
+        run: |
+          # docker push ghcr.io/$GITHUB_ACTOR/r-latex:geospatial-4.2.2
+          docker push ghcr.io/$GITHUB_ACTOR/r-latex:vscode-geospatial-4.2.2

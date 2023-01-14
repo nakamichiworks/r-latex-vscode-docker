@@ -1,4 +1,4 @@
-FROM nakamichi/r-latex:verse-4.2.2
+FROM ghcr.io/nakamichiworks/r-latex:verse-4.2.2
 
 # vscode-R and renv
 RUN apt-get update && \

@@ -19,8 +19,8 @@ jobs:
       - name: Build Docker Images
         run: |
           cd dockerfiles
-          # docker build -f latex-geospatial-4.2.2 -t ghcr.io/$GITHUB_ACTOR/r-latex:geospatial-4.2.2 .
-          docker build -f vscode-geospatial-4.2.2 -t ghcr.io/$GITHUB_ACTOR/r-latex:vscode-geospatial-4.2.2 .
+          # docker build -f latex-geospatial-4.2.2.Dockerfile -t ghcr.io/$GITHUB_ACTOR/r-latex:geospatial-4.2.2 .
+          docker build -f vscode-geospatial-4.2.2.Dockerfile -t ghcr.io/$GITHUB_ACTOR/r-latex:vscode-geospatial-4.2.2 .
       - name: Push Docker Image
         run: |
           # docker push ghcr.io/$GITHUB_ACTOR/r-latex:geospatial-4.2.2

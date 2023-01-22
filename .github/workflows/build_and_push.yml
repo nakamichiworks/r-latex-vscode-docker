@@ -1,12 +1,14 @@
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "docker image tag"
+        required: true
 
 env:
   GHCR_REPO: nakamichiworks
   IMAGE_NAME: r-latex
-  IMAGE_TAG: vscode-geospatial-4.2.2
+  IMAGE_TAG: ${{ github.event.inputs.image_tag }}
 
 name: Docker Build and Push
 

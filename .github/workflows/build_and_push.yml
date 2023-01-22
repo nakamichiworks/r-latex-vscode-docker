@@ -5,7 +5,8 @@ on:
 
 env:
   GHCR_REPO: nakamichiworks
-
+  IMAGE_NAME: r-latex
+  IMAGE_TAG: vscode-geospatial-4.2.2
 
 name: Docker Build and Push
 
@@ -46,6 +47,6 @@ jobs:
           file: ./dockerfiles/vscode-geospatial-4.2.2.Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/${{ env.GHCR_REPO }}/r-latex:vscode-geospatial-4.2.2
+          tags: ghcr.io/${{ env.GHCR_REPO }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache

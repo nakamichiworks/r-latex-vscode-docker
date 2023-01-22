@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./dockerfiles/vscode-geospatial-4.2.2.Dockerfile
+          file: ./dockerfiles/${{ env.IMAGE_TAG }}.Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ghcr.io/${{ env.GHCR_REPO }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}

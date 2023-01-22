@@ -1,3 +1,5 @@
+name: Docker Build and Push
+
 on:
   workflow_dispatch:
     inputs:
@@ -9,8 +11,6 @@ env:
   GHCR_REPO: nakamichiworks
   IMAGE_NAME: r-latex
   IMAGE_TAG: ${{ github.event.inputs.image_tag }}
-
-name: Docker Build and Push
 
 jobs:
   build_and_push:
